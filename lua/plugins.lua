@@ -173,10 +173,16 @@ require('lazy').setup({
 
       -- Installation and Integration of daps
       'williamboman/mason.nvim',
-      'jay-babu/mason-nvim-dap.nvim',
+      -- 'jay-babu/mason-nvim-dap.nvim',
 
     },
-    config = require('config.debug-config'),
+    config = function()
+      require('config.debug-config').dap_config()
+    end,
   },
-
+  {
+    'mrcjkb/rustaceanvim',
+    version = '^4', -- Recommended
+    ft = { 'rust' },
+  },
 })
