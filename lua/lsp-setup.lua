@@ -60,7 +60,7 @@ require('neodev').setup()
 local servers = {
   -- clangd = {},
   -- rust_analyzer = {},
-
+  texlab = {},
   lua_ls = {
     Lua = {
       workspace = { checkThirdParty = false },
@@ -102,6 +102,8 @@ for server_name, config in pairs(servers) do
   setup_default(server_name, config)
 end
 
+
+-- add manually managed LSP here
 require('lspconfig').zls.setup{
   on_attach = on_attach,
   capabilities = capabilities,
