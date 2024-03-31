@@ -56,7 +56,7 @@ require('mason-lspconfig').setup()
 -- Setup neovim lua configuration
 require('neodev').setup()
 
--- list of language servers using default handler
+-- list of language servers and their settings setup with lspconfig
 local servers = {
   -- clangd = {},
   -- rust_analyzer = {},
@@ -89,7 +89,25 @@ mason_lspconfig.setup {
   ensure_installed = vim.tbl_keys(servers),
 }
 
--- see :h mason-lspconfig-automatic-server-setup
+local function setup_default(server_name, config)
+  require('lspconfig')[server_name].setup {
+      capabilities = capabilities,
+      on_attach = on_attach,
+      settings = config,
+      filetypes = (servers[server_name] or {}).filetypes,
+    }
+end
+
+for server_name, config in pairs(servers) do
+  setup_default(server_name, config)
+end
+
+require('lspconfig').zls.setup{
+  on_attach = on_attach,
+  capabilities = capabilities,
+}
+
+--[[ -- see :h mason-lspconfig-automatic-server-setup
 mason_lspconfig.setup_handlers {
   function(server_name)
     require('lspconfig')[server_name].setup {
@@ -99,4 +117,5 @@ mason_lspconfig.setup_handlers {
       filetypes = (servers[server_name] or {}).filetypes,
     }
   end,
-}
+} ]]
+
