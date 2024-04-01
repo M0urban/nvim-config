@@ -58,8 +58,8 @@ require('neodev').setup()
 
 -- list of language servers and their settings setup with lspconfig
 local servers = {
-  -- clangd = {},
-  -- rust_analyzer = {},
+  clangd = {},
+  pyright = {},
   texlab = {},
   lua_ls = {
     Lua = {
