@@ -48,3 +48,20 @@ vim.o.termguicolors = true
 
 --always keeps 8 lines at top or bottom of screen
 vim.o.scrolloff = 8
+
+-- Check if we are in a WSL instance by cheking if 'WSL_DISTRO_NAME' variable exists
+-- If so setup win32yank clipboard
+if os.getenv('WSL_DISTRO_NAME') ~= nil then
+ vim.g.clipboard = {
+  name = "win32yank-wsl",
+  copy = {
+    ["+"] = "win32yank.exe -i --crlf",
+    ["*"] = "win32yank.exe -i --crlf"
+  },
+  paste = {
+    ["+"] = "win32yank.exe -o --lf",
+    ["*"] = "win32yank.exe -o --lf"
+  },
+  cache_enable = 0,
+}
+end
