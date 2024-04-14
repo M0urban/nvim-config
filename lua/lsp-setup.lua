@@ -60,6 +60,7 @@ require('neodev').setup()
 local servers = {
   clangd = {},
   pyright = {},
+  cmake = {},
   texlab = {},
   lua_ls = {
     Lua = {
