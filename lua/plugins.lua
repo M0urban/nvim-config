@@ -186,6 +186,7 @@ require('lazy').setup({
     ft = { 'rust' },
   },
   {
-    'Civitasv/cmake-tools.nvim'
+    'Civitasv/cmake-tools.nvim',
+    config = require('config.cmake-tools-config').cmake_config,
   },
 })
