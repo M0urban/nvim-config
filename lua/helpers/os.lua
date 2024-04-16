@@ -1,7 +1,7 @@
 local M = {}
 
 function M.isWindows()
-  if jit.os.lower == 'windows' then
+  if string.lower(jit.os) == 'windows' then
     return true
   else
     return false
@@ -10,7 +10,7 @@ end
 
 -- Adds .exe to binary name when on windows
 function M.binName(binname)
-  if M.isWindows then
+  if M.isWindows() then
     return (binname .. '.exe')
   else
     return binname
