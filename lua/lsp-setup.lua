@@ -54,7 +54,9 @@ require('mason').setup()
 require('mason-lspconfig').setup()
 
 -- Setup neovim lua configuration
-require('neodev').setup()
+require('neodev').setup({
+  library = { plugins = { "nvim-dap-ui" }, types = true },
+})
 
 -- list of language servers and their settings setup with lspconfig
 local servers = {
