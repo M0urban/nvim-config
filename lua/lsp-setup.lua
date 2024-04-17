@@ -64,6 +64,12 @@ local servers = {
   pyright = {},
   cmake = {},
   texlab = {},
+  jsonls = {
+    json = {
+      schemas = require('schemastore').json.schemas(),
+      validate = {enable = true},
+    },
+  },
   lua_ls = {
     Lua = {
       workspace = { checkThirdParty = false },

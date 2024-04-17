@@ -189,4 +189,7 @@ require('lazy').setup({
     'Civitasv/cmake-tools.nvim',
     config = require('config.cmake-tools-config').cmake_config,
   },
+  {
+    'b0o/SchemaStore.nvim',
+  },
 })
