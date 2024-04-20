@@ -60,27 +60,33 @@ require('neodev').setup({
 
 -- list of language servers and their settings setup with lspconfig
 local servers = {
-  clangd = {},
+  clangd = {
+    cmd = { "clangd", "--fallback-style=webkit", },
+  },
   pyright = {},
   cmake = {},
   texlab = {},
   jsonls = {
-    json = {
-      schemas = require('schemastore').json.schemas(),
-      validate = {enable = true},
+    settings = {
+      json = {
+        schemas = require('schemastore').json.schemas(),
+        validate = { enable = true },
+      },
     },
   },
   lua_ls = {
-    Lua = {
-      workspace = { checkThirdParty = false },
-      telemetry = { enable = false },
-      -- NOTE: toggle below to ignore Lua_LS's noisy `missing-fields` warnings
-      diagnostics = { disable = { 'missing-fields' } },
-      format = {
-        enable = true,
-        defaultConfig = {
-          indent_style = "space",
-          indent_size = "2",
+    settings = {
+      Lua = {
+        workspace = { checkThirdParty = false },
+        telemetry = { enable = false },
+        -- NOTE: toggle below to ignore Lua_LS's noisy `missing-fields` warnings
+        diagnostics = { disable = { 'missing-fields' } },
+        format = {
+          enable = true,
+          defaultConfig = {
+            indent_style = "space",
+            indent_size = "2",
+          },
         },
       },
     },
@@ -100,20 +106,24 @@ mason_lspconfig.setup {
 
 local function setup_default(server_name, config)
   require('lspconfig')[server_name].setup {
-      capabilities = capabilities,
-      on_attach = on_attach,
-      settings = config,
-      filetypes = (servers[server_name] or {}).filetypes,
-    }
+    capabilities = capabilities,
+    on_attach = on_attach,
+    settings = config.settings or {},
+    cmd = config.cmd or nil,
+    filetypes = (servers[server_name] or {}).filetypes,
+  }
 end
 
 for server_name, config in pairs(servers) do
+  if server_name == "clangd" then
+    vim.print(config)
+  end
   setup_default(server_name, config)
 end
 
 
 -- add manually managed LSP here
-require('lspconfig').zls.setup{
+require('lspconfig').zls.setup {
   on_attach = on_attach,
   capabilities = capabilities,
 }
@@ -129,4 +139,3 @@ mason_lspconfig.setup_handlers {
     }
   end,
 } ]]
-
