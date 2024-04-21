@@ -115,9 +115,6 @@ local function setup_default(server_name, config)
 end
 
 for server_name, config in pairs(servers) do
-  if server_name == "clangd" then
-    vim.print(config)
-  end
   setup_default(server_name, config)
 end
 
