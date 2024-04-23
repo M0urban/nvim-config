@@ -66,6 +66,13 @@ local servers = {
   pyright = {},
   cmake = {},
   texlab = {},
+  ltex = {
+    settings = {
+      ltex = {
+        language = "de-DE",
+      },
+    },
+  },
   jsonls = {
     settings = {
       json = {
