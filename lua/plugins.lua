@@ -55,6 +55,7 @@ require('lazy').setup({
     }
   },
 
+  { "L3MON4D3/LuaSnip", run = "make install_jsregexp" },
   {
     -- Autocompletion
     'hrsh7th/nvim-cmp',
