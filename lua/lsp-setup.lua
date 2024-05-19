@@ -28,8 +28,6 @@ local on_attach = function(_, bufnr)
     print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
   end, '[W]orkspace [L]ist Folders')
 
-  -- See `:help K` for why this keymap
-  nmap('K', vim.lsp.buf.hover, 'Hover Documentation')
   nmap('<C-k>', vim.lsp.buf.signature_help, 'Signature Documentation')
 
   -- Create a command `:Format` local to the LSP buffer
@@ -62,6 +60,7 @@ require('neodev').setup({
 local servers = {
   clangd = {
     cmd = { "clangd", "--fallback-style=webkit", },
+    settings = {InlayHints={Enabled="Yes"},},
   },
   pyright = {},
   cmake = {},
