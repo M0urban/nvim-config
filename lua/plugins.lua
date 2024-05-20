@@ -193,4 +193,9 @@ require('lazy').setup({
   {
     'b0o/SchemaStore.nvim',
   },
+  {
+    "ThePrimeagen/harpoon",
+    branch = "harpoon2",
+    dependencies = { "nvim-lua/plenary.nvim" }
+  },
 })
