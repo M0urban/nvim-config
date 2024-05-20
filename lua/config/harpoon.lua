@@ -5,7 +5,7 @@ harpoon:setup()
 -- REQUIRED
 
 vim.keymap.set("n", "<leader>o", function() harpoon:list():add() end, {desc = 'Add current file to harpoon'})
-vim.keymap.set("n", "<C-e>", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end, 'Show harpooned files')
+vim.keymap.set("n", "<C-e>", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end, {desc = 'Show harpooned files'})
 
 vim.keymap.set("n", "<C-t>", function() harpoon:list():select(1) end, {desc = 'Harpoon slot 1'})
 vim.keymap.set("n", "<C-z>", function() harpoon:list():select(2) end, {desc = 'Harpoon slot 2'})
