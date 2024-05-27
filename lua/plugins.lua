@@ -194,8 +194,15 @@ require('lazy').setup({
     'b0o/SchemaStore.nvim',
   },
   {
-    "ThePrimeagen/harpoon",
-    branch = "harpoon2",
-    dependencies = { "nvim-lua/plenary.nvim" }
+    'ThePrimeagen/harpoon',
+    branch = 'harpoon2',
+    dependencies = { 'nvim-lua/plenary.nvim' }
+  },
+  {
+    'ggandor/leap.nvim',
+    dependencies = {
+      'tpope/vim-repeat',
+    },
+    lazy=false,
   },
 })

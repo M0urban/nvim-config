@@ -3,6 +3,7 @@
 
 require('config.neo-tree-config')
 require('config.harpoon')
+require('config.leap-config')
 
 
 
