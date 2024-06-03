@@ -59,7 +59,7 @@ require('neodev').setup({
 -- list of language servers and their settings setup with lspconfig
 local servers = {
   clangd = {
-    cmd = { "clangd", "--fallback-style=webkit", },
+    cmd = { "clangd", "--fallback-style=webkit", "--header-insertion=never" },
     settings = {InlayHints={Enabled="Yes"},},
   },
   pyright = {},
