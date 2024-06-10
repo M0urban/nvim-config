@@ -41,5 +41,7 @@ local on_attach = function(_, bufnr)
 end
 
 vim.g.rustaceanvim = {
-  on_attach = on_attach
+  server = {
+    on_attach = on_attach
+  },
 }
