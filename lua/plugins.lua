@@ -9,8 +9,33 @@ require('lazy').setup({
   "williamboman/mason-lspconfig.nvim",
   "neovim/nvim-lspconfig",
   -- "Automatically configures lua-language-server for your Neovim config, Neovim runtime and plugin directories"
-  { "folke/neodev.nvim",    opts = {} },
-
+  {
+    "folke/lazydev.nvim",
+    ft = "lua", -- only load on lua files
+    opts = {
+      library = {
+        -- See the configuration section for more details
+        -- Load luvit types when the `vim.uv` word is found
+        { path = "luvit-meta/library", words = { "vim%.uv" } },
+        -- Only load the lazyvim library when the `LazyVim` global is found
+        { path = "LazyVim",            words = { "LazyVim" } },
+        -- Load the wezterm types when the `wezterm` module is required
+        -- Needs `justinsgithub/wezterm-types` to be installed
+        { path = "wezterm-types",      mods = { "wezterm" } },
+        { path = "nvim-dap-ui",        mods = { "nvim-dap-ui" } },
+      },
+      -- always enable unless `vim.g.lazydev_enabled = false`
+      -- This is the default
+      enabled = function(root_dir)
+        return vim.g.lazydev_enabled == nil and true or vim.g.lazydev_enabled
+      end,
+      -- disable when a .luarc.json file is found
+      enabled = function(root_dir)
+        return not vim.uv.fs_stat(root_dir .. "/.luarc.json")
+      end,
+    },
+  },
+  { "Bilal2453/luvit-meta", lazy = true }, -- optional `vim.uv` typings
   -- "Extensible UI for Neovim notifications and LSP progress messages."
   { 'j-hui/fidget.nvim',    opts = {} },
 
@@ -54,8 +79,17 @@ require('lazy').setup({
       end
     }
   },
-
-  { "L3MON4D3/LuaSnip", run = "make install_jsregexp" },
+  {  -- optional completion source for require statements and module annotations
+    "hrsh7th/nvim-cmp",
+    opts = function(_, opts)
+      opts.sources = opts.sources or {}
+      table.insert(opts.sources, {
+        name = "lazydev",
+        group_index = 0, -- set group index to 0 to skip loading LuaLS completions
+      })
+    end,
+  },
+  { "L3MON4D3/LuaSnip",                    run = "make install_jsregexp" },
   {
     -- Autocompletion
     'hrsh7th/nvim-cmp',
@@ -76,7 +110,7 @@ require('lazy').setup({
     },
   },
   --Add guides for indentation
-  { "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
+  { "lukas-reineke/indent-blankline.nvim", main = "ibl",                 opts = {} },
 
   -- gb and gc for regions/lines/text objects
   { 'numToStr/Comment.nvim',               opts = {} },
@@ -146,7 +180,6 @@ require('lazy').setup({
     init = function()
       vim.g.vimtex_view_method = 'general'
       vim.g.vimtex_view_general_viewer = 'SumatraPDF'
-      vim.g.vimtex_view_general_viewer = 'SumatraPDF'
       vim.g.vimtex_view_general_options = '-reuse-instance -forward-search @tex @line @pdf'
       -- vim.g.vimtex_compiler_method = 'latexmk'
       vim.g.maplocalleader = '\\'
@@ -206,6 +239,6 @@ require('lazy').setup({
     dependencies = {
       'tpope/vim-repeat',
     },
-    lazy=false,
+    lazy = false,
   },
 })
