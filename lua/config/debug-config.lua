@@ -18,7 +18,7 @@ function M.dap_config()
       args = { "--port", "${port}" },
 
       -- On windows you may have to uncomment this:
-      -- detached = false,
+      detached = not require('helpers.os').isWindows(),
     }
   }
   local cppdbgpath = (vim.fn.stdpath('data') .. '/mason' .. '/packages' .. '/cpptools/extension/debugAdapters/bin' .. require('helpers.os').binName('/OpenDebugAD7'))
