@@ -8,6 +8,16 @@ require('telescope').setup {
       },
     },
   },
+  pickers = {
+    live_grep = {
+      file_ignore_patterns = { '.git', '.venv' },
+      additional_args = { "-uu" },
+    },
+    grep_string = {
+      file_ignore_patterns = { '.git', '.venv' },
+      additional_args = { "-uu" },
+    },
+  },
 }
 
 -- load fzf extension in protected mode meaning error in fzf doesnt crash nvim
@@ -60,14 +70,16 @@ vim.keymap.set('n', '<leader>/', function()
       winblend = 10,
       previewer = false,
       -- layout_strategy = 'vertical',
-      layout_config = { width = 0.7, height =  30},
+      layout_config = { width = 0.7, height = 30 },
     }
   )
 end, { desc = '[/] Fuzzily search in current buffer' })
 
 vim.keymap.set('n', '<leader>gf', require('telescope.builtin').git_files, { desc = 'Search [G]it [F]iles' })
 vim.keymap.set('n', '<leader>sf', require('telescope.builtin').find_files, { desc = '[S]earch [F]iles' })
-vim.keymap.set('n', '<leader>saf', function() require('telescope.builtin').find_files({hidden = true, no_ignore = true,}) end, { desc = '[S]earch [A]ll [F]iles' })
+vim.keymap.set('n', '<leader>saf',
+  function() require('telescope.builtin').find_files({ hidden = true, no_ignore = true, }) end,
+  { desc = '[S]earch [A]ll [F]iles' })
 vim.keymap.set('n', '<leader>sh', require('telescope.builtin').help_tags, { desc = '[S]earch [H]elp' })
 vim.keymap.set('n', '<leader>sw', require('telescope.builtin').grep_string, { desc = '[S]earch current [W]ord' })
 vim.keymap.set('n', '<leader>sg', require('telescope.builtin').live_grep, { desc = '[S]earch by [G]rep' })
