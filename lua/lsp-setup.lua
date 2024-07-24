@@ -73,6 +73,7 @@ local servers = {
   pyright = {},
   cmake = {},
   texlab = {},
+  lemminx = {},
   ltex = {
     settings = {
       ltex = {
