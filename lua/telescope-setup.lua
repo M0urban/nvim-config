@@ -13,6 +13,10 @@ require('telescope').setup {
       file_ignore_patterns = { '.git', '.venv' },
       additional_args = { "-uu" },
     },
+    grep_string = {
+      file_ignore_patterns = { '.git', '.venv' },
+      additional_args = { "-uu" },
+    },
   },
 }
 
