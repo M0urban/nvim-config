@@ -68,8 +68,8 @@ function M.dap_config()
   vim.keymap.set('n', '<F7>', dapui.toggle, { desc = 'Debug: See last session result.' })
 
   dap.listeners.after.event_initialized['dapui_config'] = dapui.open
-  dap.listeners.before.event_terminated['dapui_config'] = dapui.close
-  dap.listeners.before.event_exited['dapui_config'] = dapui.close
+  -- dap.listeners.before.event_terminated['dapui_config'] = dapui.close
+  -- dap.listeners.before.event_exited['dapui_config'] = dapui.close
   -- prepare setup debuggers here
   require('config.rust-debug')
   require('config.zig-debug')
