@@ -31,6 +31,9 @@ vim.o.smartcase = true
 -- keep signcolumn on by default
 vim.wo.signcolumn = 'yes'
 
+vim.wo.cursorline = true
+vim.wo.cursorcolumn = true
+
 vim.bo.tabstop = 4
 vim.bo.shiftwidth = 4
 vim.bo.expandtab = true
