@@ -168,6 +168,12 @@ require('lazy').setup({
           CursorLineNr = {
             fg = palette.orange,
           },
+          CursorLine = {
+            bg = palette.brown
+          },
+          CursorColumn = {
+            bg = palette.brown
+          }
         },
 
       }
