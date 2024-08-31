@@ -155,6 +155,30 @@ require('lazy').setup({
   },
   -- colorscheme
   {
+    'folke/tokyonight.nvim',
+    lazy = false,
+    priority = 1000,
+    config = function()
+      require('tokyonight').setup({
+        on_colors = function (colors)
+          colors.fg_sidebar = colors.info
+        end
+      })
+      -- vim.cmd([[colorscheme tokyonight]])
+    end,
+  },
+  {
+    'loctvl842/monokai-pro.nvim',
+    lazy = false,
+    priority = 1000,
+    config = function()
+      require('monokai-pro').setup({
+        filter = "ristretto",
+      })
+      -- vim.cmd([[colorscheme monokai-pro]])
+    end,
+  },
+  {
     'tanvirtin/monokai.nvim',
     priority = 1000,
     config = function()
