@@ -203,8 +203,12 @@ require('lazy').setup({
             bg = palette.brown
           },
           CursorColumn = {
-            bg = palette.brown
-          }
+            bg = palette.brown,
+          },
+          Visual = {
+            bg = palette.brown,
+          },
+
         },
 
       }
