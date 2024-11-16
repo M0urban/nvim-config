@@ -79,7 +79,7 @@ require('lazy').setup({
       end
     }
   },
-  {  -- optional completion source for require statements and module annotations
+  { -- optional completion source for require statements and module annotations
     "hrsh7th/nvim-cmp",
     opts = function(_, opts)
       opts.sources = opts.sources or {}
@@ -153,7 +153,38 @@ require('lazy').setup({
     },
     build = ':TSUpdate',
   },
+  {
+    'MeanderingProgrammer/render-markdown.nvim',
+    opts = {},
+    -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.nvim' }, -- if you use the mini.nvim suite
+    -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.icons' }, -- if you use standalone mini plugins
+    dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- if you prefer nvim-web-devicons
+  },
   -- colorscheme
+  {
+    'folke/tokyonight.nvim',
+    lazy = false,
+    priority = 1000,
+    config = function()
+      require('tokyonight').setup({
+        on_colors = function (colors)
+          colors.fg_sidebar = colors.info
+        end
+      })
+      -- vim.cmd([[colorscheme tokyonight]])
+    end,
+  },
+  {
+    'loctvl842/monokai-pro.nvim',
+    lazy = false,
+    priority = 1000,
+    config = function()
+      require('monokai-pro').setup({
+        filter = "ristretto",
+      })
+      -- vim.cmd([[colorscheme monokai-pro]])
+    end,
+  },
   {
     'tanvirtin/monokai.nvim',
     priority = 1000,
@@ -168,6 +199,16 @@ require('lazy').setup({
           CursorLineNr = {
             fg = palette.orange,
           },
+          CursorLine = {
+            bg = palette.brown
+          },
+          CursorColumn = {
+            bg = palette.brown,
+          },
+          Visual = {
+            bg = palette.brown,
+          },
+
         },
 
       }
