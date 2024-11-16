@@ -49,6 +49,13 @@ vim.o.termguicolors = true
 --always keeps 8 lines at top or bottom of screen
 vim.o.scrolloff = 8
 
+vim.filetype.add({
+  filename = {
+    ['settings.json'] = 'jsonc',
+    ['launch.json'] = 'jsonc',
+  },
+})
+
 -- Check if we are in a WSL instance by cheking if 'WSL_DISTRO_NAME' variable exists
 -- If so setup win32yank clipboard
 if os.getenv('WSL_DISTRO_NAME') ~= nil then
