@@ -31,3 +31,12 @@ vim.keymap.set('n', '<leader>ft',
     })
   end,
   { desc = "Buffers (root dir)" })
+
+vim.keymap.set('n', '<leader>fs',
+  function()
+    require("neo-tree.command").execute({
+      toggle = true,
+      position = "left",
+    })
+  end,
+  { desc = "Buffers (root dir)" })
