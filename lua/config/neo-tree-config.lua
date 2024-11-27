@@ -6,10 +6,17 @@ require("neo-tree").setup({
   },
   filesystem = {
     hijack_netrw_behavior = "open_current", --set "disabled"
+    use_libuv_file_watcher = true,
   },
   source_selector = {
     content_layout = "center",
     tabs_layout = "center",
+  },
+  buffers = {
+    follow_current_file = {
+      enabled = true,
+      leave_dirs_open = true,
+    },
   },
   event_handlers = {
     {
