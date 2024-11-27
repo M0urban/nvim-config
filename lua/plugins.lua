@@ -41,6 +41,7 @@ require('lazy').setup({
 
   -- show pending keybindings
   { 'folke/which-key.nvim', opts = {} },
+  { 'tpope/vim-sleuth',},
   {
     'lewis6991/gitsigns.nvim',
 
