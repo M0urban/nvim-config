@@ -11,11 +11,11 @@ require('telescope').setup {
   pickers = {
     live_grep = {
       file_ignore_patterns = { '.git', '.venv' },
-      additional_args = { "-uu", '-g', '!build/' },
+      additional_args = { "-uu", '-g', '!_deps/' },
     },
     grep_string = {
       file_ignore_patterns = { '.git', '.venv' },
-      additional_args = { "-uu", '-g', '!build/'},
+      additional_args = { "-uu", '-g', '!_deps/' },
     },
   },
 }
