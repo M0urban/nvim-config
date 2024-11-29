@@ -35,6 +35,12 @@ require('lazy').setup({
       -- end,
     },
   },
+  {
+    "danymat/neogen",
+    config = require('config.neogen-config').neogen_setup,
+    -- Uncomment next line if you want to follow only stable versions
+    version = "*"
+  },
   { "Bilal2453/luvit-meta", lazy = true }, -- optional `vim.uv` typings
   -- "Extensible UI for Neovim notifications and LSP progress messages."
   { 'j-hui/fidget.nvim',    opts = {} },
