@@ -47,7 +47,7 @@ require('lazy').setup({
 
   -- show pending keybindings
   { 'folke/which-key.nvim', opts = {} },
-  { 'tpope/vim-sleuth',},
+  { 'tpope/vim-sleuth', },
   {
     'lewis6991/gitsigns.nvim',
 
@@ -174,7 +174,7 @@ require('lazy').setup({
     priority = 1000,
     config = function()
       require('tokyonight').setup({
-        on_colors = function (colors)
+        on_colors = function(colors)
           colors.fg_sidebar = colors.info
         end
       })
