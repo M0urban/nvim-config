@@ -47,6 +47,9 @@ vim.o.timeoutlen = 300
 vim.o.completeopt = 'menuone,noselect'
 
 
+vim.o.list = true
+vim.o.listchars = 'eol:↵,trail:~,tab:>-,nbsp:␣'
+
 vim.o.termguicolors = true
 
 --always keeps 8 lines at top or bottom of screen
