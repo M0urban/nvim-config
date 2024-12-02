@@ -50,6 +50,16 @@ vim.o.completeopt = 'menuone,noselect'
 vim.o.list = true
 vim.o.listchars = 'eol:↵,trail:~,tab:>-,nbsp:␣'
 
+--Remove trailing whitespaces on save
+vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+    pattern = {"*"},
+    callback = function(ev)
+        save_cursor = vim.fn.getpos(".")
+        vim.cmd([[%s/\s\+$//e]])
+        vim.fn.setpos(".", save_cursor)
+    end,
+})
+
 vim.o.termguicolors = true
 
 --always keeps 8 lines at top or bottom of screen
