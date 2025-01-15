@@ -38,19 +38,19 @@ end
 
 require('which-key').add(
   {
-    { "<leader>c", group = "[C]ode" },
+    { "<leader>c",  group = "[C]ode" },
     { "<leader>c_", hidden = true },
-    { "<leader>d", group = "[D]ocument" },
+    { "<leader>d",  group = "[D]ocument" },
     { "<leader>d_", hidden = true },
-    { "<leader>g", group = "[G]it" },
+    { "<leader>g",  group = "[G]it" },
     { "<leader>g_", hidden = true },
-    { "<leader>h", group = "More git" },
+    { "<leader>h",  group = "More git" },
     { "<leader>h_", hidden = true },
-    { "<leader>r", group = "[R]ename" },
+    { "<leader>r",  group = "[R]ename" },
     { "<leader>r_", hidden = true },
-    { "<leader>s", group = "[S]earch" },
+    { "<leader>s",  group = "[S]earch" },
     { "<leader>s_", hidden = true },
-    { "<leader>w", group = "[W]orkspace" },
+    { "<leader>w",  group = "[W]orkspace" },
     { "<leader>w_", hidden = true },
   }
 )
@@ -66,9 +66,18 @@ require('mason-lspconfig').setup()
 
 -- list of language servers and their settings setup with lspconfig
 local servers = {
+  -- rust_analyzer = {
+  --   settings = {
+  --     ['rust-analyzer'] = {
+  --       diagnostics = {
+  --         enable = false,
+  --       }
+  --     }
+  --   }
+  -- },
   clangd = {
     cmd = { "clangd", "--fallback-style=webkit", "--header-insertion=never" },
-    settings = {InlayHints={Enabled="Yes"},},
+    settings = { InlayHints = { Enabled = "Yes" }, },
   },
   pyright = {},
   cmake = {},
@@ -117,6 +126,7 @@ local servers = {
       },
     },
   },
+  powershell_es = {},
 }
 
 -- nvim-cmp supports additional completion capabilities, so broadcast that to servers
