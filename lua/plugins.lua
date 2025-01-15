@@ -161,6 +161,17 @@ require('lazy').setup({
     build = ':TSUpdate',
   },
   {
+    'Wansmer/binary-swap.nvim',
+    config = function()
+      vim.keymap.set('n', '<leader>ac', function()
+        require('binary-swap').swap_operands()
+      end)
+      vim.keymap.set('n', '<leader>AC', function()
+        require('binary-swap').swap_operands_with_operator()
+      end)
+    end
+  },
+  {
     'MeanderingProgrammer/render-markdown.nvim',
     opts = {},
     -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.nvim' }, -- if you use the mini.nvim suite
