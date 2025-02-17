@@ -83,13 +83,6 @@ local servers = {
   cmake = {},
   texlab = {},
   lemminx = {},
-  ltex = {
-    settings = {
-      ltex = {
-        language = "de-DE",
-      },
-    },
-  },
   jsonls = {
     settings = {
       json = {
@@ -161,14 +154,3 @@ require('lspconfig').zls.setup {
   capabilities = capabilities,
 }
 
---[[ -- see :h mason-lspconfig-automatic-server-setup
-mason_lspconfig.setup_handlers {
-  function(server_name)
-    require('lspconfig')[server_name].setup {
-      capabilities = capabilities,
-      on_attach = on_attach,
-      settings = servers[server_name],
-      filetypes = (servers[server_name] or {}).filetypes,
-    }
-  end,
-} ]]
