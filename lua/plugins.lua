@@ -233,18 +233,6 @@ require('lazy').setup({
     end,
   },
 
-  -- latex integration
-  {
-    'lervag/vimtex',
-    init = function()
-      vim.g.vimtex_view_method = 'general'
-      vim.g.vimtex_view_general_viewer = 'SumatraPDF'
-      vim.g.vimtex_view_general_options = '-reuse-instance -forward-search @tex @line @pdf'
-      -- vim.g.vimtex_compiler_method = 'latexmk'
-      vim.g.maplocalleader = '\\'
-    end,
-  },
-
   {
     "nvim-neo-tree/neo-tree.nvim",
     branch = "v3.x",
@@ -292,12 +280,5 @@ require('lazy').setup({
     'ThePrimeagen/harpoon',
     branch = 'harpoon2',
     dependencies = { 'nvim-lua/plenary.nvim' }
-  },
-  {
-    'ggandor/leap.nvim',
-    dependencies = {
-      'tpope/vim-repeat',
-    },
-    lazy = false,
   },
 })
