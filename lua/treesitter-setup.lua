@@ -33,8 +33,11 @@ vim.defer_fn(function()
           ['ia'] = '@parameter.inner',
           ['af'] = '@function.outer',
           ['if'] = '@function.inner',
-          ['ac'] = '@class.outer',
-          ['ic'] = '@class.inner',
+          -- s for struct
+          ['as'] = '@class.outer',
+          ['is'] = '@class.inner',
+          ['ac'] = '@comment.outer',
+          ['ic'] = '@comment.inner',
         },
       },
       move = {
