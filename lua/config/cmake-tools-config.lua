@@ -3,7 +3,7 @@ local M = {}
 function M.cmake_config()
   require('cmake-tools').setup {
     cmake_generate_options = { "-DCMAKE_EXPORT_COMPILE_COMMANDS=1" }, -- this will be passed when invoke `CMakeGenerate`
-    cmake_build_options = {},                                         -- this will be passed when invoke `CMakeBuild`
+    cmake_build_options = {"-j$(nproc)"},                                         -- this will be passed when invoke `CMakeBuild`
     -- support macro expansion:
     --       ${kit}
     --       ${kitGenerator}
