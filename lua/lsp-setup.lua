@@ -134,13 +134,13 @@ mason_lspconfig.setup {
 }
 
 local function setup_default(server_name, config)
-  require('lspconfig')[server_name].setup {
+  vim.lsp.config(server_name, {
     capabilities = capabilities,
     on_attach = on_attach,
     settings = config.settings or {},
     cmd = config.cmd or nil,
     filetypes = (servers[server_name] or {}).filetypes,
-  }
+  })
 end
 
 for server_name, config in pairs(servers) do
@@ -149,10 +149,10 @@ end
 
 
 -- add manually managed LSP here
-require('lspconfig').zls.setup {
+vim.lsp.config('zls', {
   on_attach = on_attach,
   capabilities = capabilities,
-}
+})
 
 -- enable autocompletion
 vim.api.nvim_create_autocmd('LspAttach', {
@@ -165,3 +165,4 @@ vim.api.nvim_create_autocmd('LspAttach', {
 })
 
 vim.diagnostic.config({ virtual_lines = { current_line = true }, })
+
