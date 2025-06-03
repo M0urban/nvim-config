@@ -119,6 +119,15 @@ local servers = {
       },
     },
   },
+  harper_ls = {
+    settings = {
+      ["harper-ls"] = {
+        linters = {
+          SpellCheck = true
+        }
+      }
+    }
+  },
   powershell_es = {},
 }
 
