@@ -76,7 +76,10 @@ local servers = {
   --   }
   -- },
   clangd = {
-    cmd = { "clangd", "--fallback-style=webkit", "--header-insertion=never" },
+    cmd = { "clangd",
+      "--fallback-style=webkit",
+      "--header-insertion=never",
+    },
     settings = { InlayHints = { Enabled = "Yes" }, },
   },
   pyright = {},
@@ -174,4 +177,3 @@ vim.api.nvim_create_autocmd('LspAttach', {
 })
 
 vim.diagnostic.config({ virtual_lines = { current_line = true }, })
-
