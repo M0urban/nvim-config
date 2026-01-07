@@ -31,6 +31,8 @@ function M.dap_config()
     }
   }
 
+  require('dap.ext.vscode').json_decode = vim.fn.JsoncDecode
+
   --basic keymaps
   vim.keymap.set('n', '<F5>', dap.continue, { desc = 'Debug: Start/Continue' })
   vim.keymap.set('n', '<F1>', dap.step_into, { desc = 'Debug: Step Into' })
