@@ -43,7 +43,7 @@ vim.bo.softtabstop = 4
 vim.o.updatetime = 250
 vim.o.timeoutlen = 300
 
---show selection window even with only one selection and dont autoselect.
+--show selection window even with only one selection and don't autoselect.
 vim.o.completeopt = 'menuone,noselect'
 
 
@@ -72,7 +72,7 @@ vim.filetype.add({
   },
 })
 
--- Check if we are in a WSL instance by cheking if 'WSL_DISTRO_NAME' variable exists
+-- Check if we are in a WSL instance by checking if 'WSL_DISTRO_NAME' variable exists
 -- If so setup win32yank clipboard
 if os.getenv('WSL_DISTRO_NAME') ~= nil then
  vim.g.clipboard = {
