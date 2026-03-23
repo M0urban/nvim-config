@@ -3,7 +3,7 @@
 
 require('config.neo-tree-config')
 require('config.harpoon')
-require('config.rustacean-config')
+-- require('config.rustacean-config')
 
 
 

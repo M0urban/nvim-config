@@ -261,11 +261,11 @@ require('lazy').setup({
       require('config.debug-config').dap_config()
     end,
   },
-  {
-    'mrcjkb/rustaceanvim',
-    version = '^4', -- Recommended
-    ft = { 'rust' },
-  },
+  -- {
+  --   'mrcjkb/rustaceanvim',
+  --   version = '^4', -- Recommended
+  --   ft = { 'rust' },
+  -- },
   {
     'Civitasv/cmake-tools.nvim',
     dependencies = {
@@ -280,5 +280,15 @@ require('lazy').setup({
     'ThePrimeagen/harpoon',
     branch = 'harpoon2',
     dependencies = { 'nvim-lua/plenary.nvim' }
-  },
+  },-- latex integration
+  {
+    'lervag/vimtex',
+    init = function()
+      vim.g.vimtex_view_method = 'general'
+      vim.g.vimtex_view_general_viewer = 'SumatraPDF'
+      vim.g.vimtex_view_general_options = '-reuse-instance -forward-search @tex @line @pdf'
+      -- vim.g.vimtex_compiler_method = 'latexmk'
+      vim.g.maplocalleader = '\\'
+    end,
+  }
 })
