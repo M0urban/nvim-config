@@ -66,15 +66,15 @@ require('mason-lspconfig').setup()
 
 -- list of language servers and their settings setup with lspconfig
 local servers = {
-  -- rust_analyzer = {
-  --   settings = {
-  --     ['rust-analyzer'] = {
-  --       diagnostics = {
-  --         enable = false,
-  --       }
-  --     }
-  --   }
-  -- },
+  rust_analyzer = {
+    settings = {
+      ['rust-analyzer'] = {
+        diagnostics = {
+          enable = false,
+        }
+      }
+    }
+  },
   clangd = {
     cmd = { "clangd",
       "--fallback-style=webkit",
