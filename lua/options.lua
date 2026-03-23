@@ -70,6 +70,9 @@ vim.filetype.add({
     ['settings.json'] = 'jsonc',
     ['launch.json'] = 'jsonc',
   },
+  extension = {
+    ['dox'] = 'doxygen'
+  },
 })
 
 -- Check if we are in a WSL instance by checking if 'WSL_DISTRO_NAME' variable exists
