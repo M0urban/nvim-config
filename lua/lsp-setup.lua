@@ -135,6 +135,7 @@ local servers = {
   },
   typos_lsp = {},
   powershell_es = {},
+  zls = {},
 }
 
 -- nvim-cmp supports additional completion capabilities, so broadcast that to servers
@@ -163,11 +164,11 @@ for server_name, config in pairs(servers) do
 end
 
 
--- add manually managed LSP here
-vim.lsp.config('zls', {
-  on_attach = on_attach,
-  capabilities = capabilities,
-})
+-- -- add manually managed LSP here
+-- vim.lsp.config('zls', {
+--   on_attach = on_attach,
+--   capabilities = capabilities,
+-- })
 
 -- enable autocompletion
 vim.api.nvim_create_autocmd('LspAttach', {
