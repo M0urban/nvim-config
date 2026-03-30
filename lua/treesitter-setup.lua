@@ -1,15 +1,16 @@
--- [[ Configure Treesitter ]]
+-- [[ Configure Tree-sitter ]]
 -- See `:help nvim-treesitter`
--- Defer Treesitter setup after first render to improve startup time of 'nvim {filename}'
+-- Defer Tree-sitter setup after first render to improve startup time of 'nvim {filename}'
 vim.defer_fn(function()
-  if(require('helpers.os').isWindows()) then
-    require('nvim-treesitter.install').compilers = {"clang", "zig", "gcc"}
+  if (require('helpers.os').isWindows()) then
+    require('nvim-treesitter.install').compilers = { "clang", "zig", "gcc" }
   end
   require('nvim-treesitter.configs').setup {
-    -- Add languages to be installed here that you want installed for treesitter
-    ensure_installed = { 'c', 'cpp', 'cmake', 'gitignore', 'go', 'json', 'jsonc','json5', 'lua', 'python', 'rust', 'vimdoc', 'vim', 'bash', 'xml', 'yaml', 'zig', 'markdown', 'markdown_inline', 'doxygen' },
+    -- Add languages to be installed here that you want installed for Tree-sitter
+    ensure_installed = { 'c', 'cpp', 'cmake', 'gitignore', 'go', 'json', 'jsonc', 'json5', 'lua', 'python',
+      'rust', 'vimdoc', 'vim', 'bash', 'xml', 'yaml', 'zig', 'markdown', 'markdown_inline', 'doxygen', 'printf' },
 
-    -- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)
+    -- Auto install languages that are not installed. Defaults to false (but you can change for yourself!)
     auto_install = false,
 
     highlight = { enable = true },
@@ -26,7 +27,7 @@ vim.defer_fn(function()
     textobjects = {
       select = {
         enable = true,
-        lookahead = true, -- Automatically jump forward to textobj, similar to targets.vim
+        lookahead = true, -- Automatically jump forward to text object, similar to targets.vim
         keymaps = {
           -- You can use the capture groups defined in textobjects.scm
           ['aa'] = '@parameter.outer',
@@ -42,7 +43,7 @@ vim.defer_fn(function()
       },
       move = {
         enable = true,
-        set_jumps = true, -- whether to set jumps in the jumplist
+        set_jumps = true, -- Whether to set jumps in the jumplist
         goto_next_start = {
           [']m'] = '@function.outer',
           [']]'] = '@class.outer',
