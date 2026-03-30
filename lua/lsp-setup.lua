@@ -126,12 +126,14 @@ local servers = {
     settings = {
       ["harper-ls"] = {
         linters = {
-          SpellCheck = true
+          SpellCheck = true,
+          LongSentences = false,
         }
       }
     },
     filetypes = { 'asciidoc', 'c', 'cpp', 'cs', 'gitcommit', 'go', 'html', 'java', 'javascript', 'lua', 'markdown', 'nix', 'python', 'ruby', 'rust', 'swift', 'toml', 'typescript', 'typescriptreact', 'haskell', 'cmake', 'typst', 'php', 'dart', 'clojure', 'sh', 'doxygen' }
   },
+  typos_lsp = {},
   powershell_es = {},
 }
 
