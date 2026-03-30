@@ -222,7 +222,10 @@ require('lazy').setup({
           Visual = {
             bg = palette.brown,
           },
+          LspInlayHint = {
+            fg = palette.grey
 
+          },
         },
 
       }
