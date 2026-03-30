@@ -71,7 +71,7 @@ vim.filetype.add({
     ['launch.json'] = 'jsonc',
   },
   extension = {
-    ['dox'] = 'doxygen'
+    ['dox'] = 'c'
   },
 })
 
