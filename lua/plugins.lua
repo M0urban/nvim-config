@@ -86,16 +86,6 @@ require('lazy').setup({
       end
     }
   },
-  { -- optional completion source for require statements and module annotations
-    "hrsh7th/nvim-cmp",
-    opts = function(_, opts)
-      opts.sources = opts.sources or {}
-      table.insert(opts.sources, {
-        name = "lazydev",
-        group_index = 0, -- set group index to 0 to skip loading LuaLS completions
-      })
-    end,
-  },
   { "L3MON4D3/LuaSnip",                    run = "make install_jsregexp" },
   {
     -- Autocompletion
@@ -115,6 +105,13 @@ require('lazy').setup({
       -- Adds a number of user-friendly snippets
       'rafamadriz/friendly-snippets',
     },
+    opts = function(_, opts)
+      opts.sources = opts.sources or {}
+      table.insert(opts.sources, {
+        name = "lazydev",
+        group_index = 0, -- set group index to 0 to skip loading LuaLS completions
+      })
+    end,
   },
   --Add guides for indentation
   { "lukas-reineke/indent-blankline.nvim", main = "ibl",                 opts = {} },
